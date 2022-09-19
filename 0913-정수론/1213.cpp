@@ -19,7 +19,8 @@ using namespace	std;
 void	putCharPalin(int count, string &palin, char c) {
 
 	for (int i = 0; i < count; i++) {
-		palin.push_back(c);
+		//palin.push_back(c);
+		palin += c;
 	}
 }
 

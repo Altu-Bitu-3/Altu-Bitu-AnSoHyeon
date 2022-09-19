@@ -20,15 +20,14 @@ void	isPrime(vector<bool> &is_prime, int input) {
 	}
 }
 
-void	conjecture(int input, vector<bool> is_prime) {
+int	conjecture(int input, vector<bool> is_prime) {
 
-	for (int i = 3; i < input / 2 + 1; i++) {
+	for (int i = 3; i < input / 2 + 1; i+=2) {	// 2배수는 모두 소수가 아니므로 홀수만 검사하도록 한다. 
 		if (is_prime[i] && is_prime[input - i]) {
-			cout << input << " = " << i << " + " << input - i << "\n";
-			return ;
+			return i;
 		}
 	}
-	cout << "Goldbach's conjecture is wrong." << "\n";
+	return 0;
 }
 
 int main () {
@@ -45,7 +44,11 @@ int main () {
 		if (input == 0) {
 			break;
 		}
-		conjecture(input, is_prime);
+		int i = conjecture(input, is_prime);
+		if (!i)
+			cout << "Goldbach's conjecture is wrong." << "\n";
+		else
+			cout << input << " = " << i << " + " << input - i << "\n";
 	}
 	return 0;
 }
