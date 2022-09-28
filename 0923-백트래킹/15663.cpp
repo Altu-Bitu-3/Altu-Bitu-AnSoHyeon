@@ -7,7 +7,7 @@ const int MAX = 8;
 
 int n, m;
 vector<bool> check(MAX, false); 
-vector<int> num(MAX, 10010);	// 입력으로 들어온 수 목록
+vector<int> num(MAX, 10010);	// 입력으로 들어온 수 목록 // sort 했을떄 빈칸이 앞으로 오는 것을 방지하기 위해 큰 값으로 초기화
 vector<int> arr(MAX, 0);
 
 void	backtracking(int count) {
@@ -20,7 +20,7 @@ void	backtracking(int count) {
 		return ;
 	}
 
-	int	before;
+	int	before = 0;
 	for (int i = 0; i < n; i++) {
 		if (!check[i] && before != num[i]) {
 			arr[count] = num[i];	
