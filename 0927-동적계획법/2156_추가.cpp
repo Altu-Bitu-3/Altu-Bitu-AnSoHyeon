@@ -48,11 +48,11 @@ int	main () {
 	vector<int> wine(n + 1);
 	// 입력값으로 주는 와인의 양을 저장할 배열
 	// 인덱스를 1번째부터 주기 위해 n+1칸을 할당한다.
-	for (int i = 0; i < n+1; i++) {
+	for (int i = 1; i < n+1; i++) {
 		cin >> wine[i];
 		// 입력받고
 	}
-	cout << maxWine(n, wine);
+	cout << maxWine(n, wine) << "\n";
 	// 와인의 최댓값 구하기 
 	return 0;
 }
